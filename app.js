@@ -5,8 +5,6 @@ var cookieParser = require("cookie-parser");
 var cors = require("cors");
 var logger = require("morgan");
 
-const proxy = require("express-http-proxy");
-var indexRouter = require("./routes/index");
 var mosRouter = require("./routes/mos");
 var lentaRouter = require("./routes/lenta");
 
@@ -23,7 +21,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-app.use("/", indexRouter);
 app.use("/lenta", lentaRouter);
 app.use("/mos", mosRouter);
 // catch 404 and forward to error handler
